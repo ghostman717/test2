@@ -11,4 +11,5 @@ class Test
     {
         echo "lol";
     }
+    // this is just a test
 }
