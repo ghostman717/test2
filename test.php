@@ -22,7 +22,7 @@
 // 14. Method `getData` should return associative array with all class properties including inherited.
 
 
-interface IVehicle 
+interface IVehicle
 {
   public function getManufacturer() : string;
   public function setManufacturer($Manufacturer) : void;
@@ -39,8 +39,8 @@ abstract class AbstractVehicle implements IVehicle
 
   public function __construct($Manufacturer, $Model)
   {
-    $this->Manufacturer = $Manufacturer;
     $this->Model = $Model;
+    $this->Manufacturer = $Manufacturer;
   }
 
   public function setManufacturer($Manufacturer): void
@@ -65,36 +65,35 @@ abstract class AbstractVehicle implements IVehicle
 
   public function drive(): void
   {
-    echo $this->getManufacturer() . "" . $this->getModel() . "is Driving";
+    $this->getManufacturer() . " " . $this->getModel() . " is driving";
   }
 
   public function stop(): void
   {
-    echo $this->getManufacturer() . "" . $this->getModel() . "is Stopping";
+    $this->getManufacturer() . " " . $this->getModel() . " is stopping";
   }
 }
 
 class Car extends AbstractVehicle implements IDataModel
 {
-  public $McLaren;
+  public $Lamborghini;
 
-  public function __construct($Model, $Manufacturer, $McLaren)
+  public function __construct($Model, $Manufacturer, $Lamborghini)
   {
-    parent::__construct($Model, $Manufacturer, $McLaren);
-    $this->McLaren = $McLaren;
+    $this->Lamborghini = $Lamborghini;
+    parent::__construct($Model, $Manufacturer);
   }
 
   public function getData(): array
   {
     $data = array(
-      'Manufacturer' => $this->Manufacturer,
-      'Model' => $this->Model,
-      'McLaren' => $this->McLaren
+      "Model" => $this->Model,
+      "Manufacturer" => $this->Manufacturer,
+      "Lamborghini" => $this->Lamborghini
     );
 
     return $data;
   }
-
 }
 
 interface IDataModel
